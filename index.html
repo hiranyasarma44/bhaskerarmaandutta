@@ -5,12 +5,15 @@
   <meta charset="utf-8">
   <title>Bhasker Armaan Dutta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-icons.css">
   <link rel="stylesheet" href="css/prism-okaidia.css">
   <link rel="stylesheet" href="css/custom.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="css/leaf-overlay.css">
+  <!-- <link rel="stylesheet" href="css/flying-bird.css"> -->
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .scrollFix {
       padding-top: 200px !important;
@@ -26,17 +29,27 @@
       audio.autoplay = true
 
       document.body.addEventListener("mousemove", playTheme)
-      console.log(x)
-      function playTheme() {
-        if (!counter)
-          audio.play()
-        counter++
-      }
+    }
+
+    function playTheme() {
+      if (!counter)
+        audio.play()
+      counter++
+    }
+    function showNative() {
+      document.getElementById('site-title').classList.add('d-none')
+      document.getElementById('site-title-hover').classList.remove('d-none')
+    }
+    function showIn8() {
+      document.getElementById('site-title').classList.remove('d-none')
+      document.getElementById('site-title-hover').classList.add('d-none')
     }
   </script>
 </head>
 
 <body>
+
+  <!-- Leaves -->
   <div class="content-overlay">
     <div class="leaves">
       <div class="leaf1">🍁</div>
@@ -51,13 +64,50 @@
       <div class="leaf11">🍁</div>
     </div>
   </div>
+
+  <!-- Birds -->
+  <!-- <div class="bird-container bird-container-one">
+    <div class="bird bird-one"></div>
+ </div>        
+ <div class="bird-container bird-container-two">
+   <div class="bird bird-two"></div>
+ </div>  
+  <div class="bird-container bird-container-three">
+    <div class="bird bird-three"></div>
+  </div> 
+  <div class="bird-container bird-container-four">
+    <div class="bird bird-four"></div>
+  </div> -->
+  <div class="container">
+    <div class="bird-container bird-container--one">
+      <div class="bird bird--one"></div>
+    </div>
+
+    <div class="bird-container bird-container--two">
+      <div class="bird bird--two"></div>
+    </div>
+
+    <div class="bird-container bird-container--three">
+      <div class="bird bird--three"></div>
+    </div>
+
+    <div class="bird-container bird-container--four">
+      <div class="bird bird--four"></div>
+    </div>
+  </div>
   <div class="sticky-top">
     <a class="navbar-brand text-center" href="index.html">
-      <h3 class="pt-2 text-danger">In Memory Of </h3>
-      <h1 class="text-success">Bhaskar <span class="text-info">Armaan</span> Dutta</h1>
+      <div id="site-title" class="" onmouseover="showNative()">
+        <h3 class="pt-2 text-danger">In Memory Of </h3>
+        <h1 class="text-success">Bhaskar <span class="text-info">Armaan</span> Dutta</h1>
+      </div>
+      <div id="site-title-hover" class="d-none">
+        <h1 class="text-success">ভাস্কৰ <span class="text-info">Armaan</span> দত্তৰ</h1>
+        <h3 class="pt-2 text-danger">স্মৃতিত</h3>
+      </div>
     </a>
 
-    <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+    <nav class="navbar navbar-expand-lg" data-bs-theme="light" onmouseover="showIn8()">
       <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
           aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,9 +136,9 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
-          <form class="d-flex">
+          <!-- <form class="d-flex">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
-          </form>
+          </form> -->
         </div>
       </div>
     </nav>
@@ -129,25 +179,22 @@
       <p class="col pb-1 fs-4 text-center lead"> Born In Nalbari, Assam</p>
       <h1 class="fw-bold pb-5"> September 14, 1993 </h1>
 
-      <p class="lead pb-4">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit
-        Text”
-        or double click me to add your own content and make changes to the font. Feel free to drag and drop me
-        anywhere you like on your page.
+      <p class="lead pb-4">We hope people who love Bhaskar will find comfort in visiting his profile to remember and
+        celebrate his life.
       </p>
 
       <p class="lead pb-4">
-        This is a great space to write long text about your company and your services. You can use this space to go
-        into a little more detail about your company. Talk about your team and what services you provide. Tell your
-        visitors the story of how you came up with the idea for your business and what makes you different from your
-        competitors.
+        Tributes to Bhaskar
+        Share stories, commemorate a special day, or let friends and family know you're thinking about him.
       </p>
 
-      <p class="lead pb-4">
+      <!-- <p class="lead pb-4">
         At Wix we’re passionate about making templates that allow you to build fabulous websites and it’s all thanks
         to the support and feedback from users like you! Keep up to date with New Releases and what’s Coming Soon in
         Wix ellaneous in Support.
-      </p>
-      <button type="button" class="btn btn-outline-primary btn-lg">Share Your Memories of Bhaskar</button>
+      </p> -->
+      <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="tooltip"
+        data-bs-title="Coming Soon">Share Your Memories of Bhaskar</button>
     </div>
 
     <div class="p-5 mb-4 bg-body-tertiary">
@@ -160,30 +207,30 @@
       <div class="container-fluid py-5">
         <div class="row">
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/1.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/2.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/3.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/4.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
         </div>
         <div class="row">
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/5.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/6.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/7.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
           <div class="col-6 col-lg-3">
-            <img src="assets/dummy.jpg" class="img img-thumbnail border-success-subtle" alt="...">
+            <img src="assets/album/8.jpg" class="img img-thumbnail border-success-subtle" alt="...">
           </div>
         </div>
       </div>
@@ -204,9 +251,9 @@
                 </svg>
               </a>
             </li>
-            <li><a href="#">Blog</a></li>
+            <!-- <li><a href="#">Blog</a></li>
             <li><a href="#">Twitter</a></li>
-            <li><a href="../help/#donate">Donate</a></li>
+            <li><a href="../help/#donate">Donate</a></li> -->
           </ul>
           <p>Developed by <a href="#">Hiranya Sarma</a>.</p>
           <!-- <p>Theme Made by <a href="https://thomaspark.co/">Thomas Park</a>.</p>

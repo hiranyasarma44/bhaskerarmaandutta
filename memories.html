@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
   <title>Memories</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-icons.css">
@@ -20,52 +21,42 @@
       margin: 5px;
     }
 
-    .scale {
-      transform: scaleY(1.05);
-      padding-top: 5px;
+    .card {
+      flex-grow: 0;
+      overflow: hidden;
     }
 
-
-    .container {
-      position: relative;
-      width: 50%;
+    .img-card {
+      flex-grow: 1;
+      object-fit: contain;
     }
 
-    .hover-image {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      width: 100%;
+    .card-img-overlay {
       opacity: 0;
-      transition: .5s ease;
-      background-color: #008CBA;
     }
 
-    .container:hover .overlay {
-      opacity: 1;
-    }
-
-    .hover-text {
-      color: white;
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
+    .card-img-overlay:hover {
+      opacity: .85;
     }
   </style>
+  <script>
+
+window.onload = function () {
+      let counter = 0
+      let audio = document.createElement("AUDIO")
+      document.body.appendChild(audio);
+      audio.src = "./assets/In This Shirt.mp3"
+      audio.autoplay = true
+
+      document.body.addEventListener("mousemove", playTheme)
+    }
+
+    function playTheme() {
+      if (!counter)
+        audio.play()
+      counter++
+    }
+  </script>
 </head>
 
 <body>
@@ -104,46 +95,16 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
-          <form class="d-flex">
+          <!-- <form class="d-flex">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
-          </form>
+          </form> -->
         </div>
       </div>
     </nav>
   </div>
 
-  <div class="container">
-    <img src="assets/dummy.jpg" alt="Avatar" class="hover-image">
-    <div class="overlay">
-      <div class="hover-text">Hello World</div>
-    </div>
-  </div>
-
   <div class="container-fluid text-center pt-4">
-    <div class="card mb-3">
-      <h3 class="card-header">Admin</h3>
-      <div class="card-body">
-        <h5 class="card-title">Heading</h5>
-        <h6 class="card-subtitle text-muted">Support subtitle</h6>
-      </div>
-      <img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80"
-      class="img-fluid">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-      <div class="card-footer text-muted">
-        2 days ago
-      </div>
-    </div>
+
     <div class="card border-light-subtle p-5 mb-4 bg-body-tertiary">
 
       <ul class="nav nav-tabs" role="tablist">
@@ -159,239 +120,230 @@
         <div class="tab-pane fade show active" id="allPost" role="tabpanel">
 
           <div class="d-flex flex-row flex-wrap justify-content-center py-2 my-2">
-            <!-- <div class="d-flex flex-column">
-        <div class="card mb-3">
-          <h3 class="card-header">Admin</h3>
-          <div class="card-body">
-            <h5 class="card-title">Heading</h5>
-            <h6 class="card-subtitle text-muted">Support subtitle</h6>
-          </div>
-          <img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80"
-          class="img-fluid">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-          <div class="card-footer text-muted">
-            2 days ago
-          </div>
-        </div>
-
-        <img src="https://images.unsplash.com/photo-1502865787650-3f8318917153?auto=format&fit=crop&w=334&q=80"
-          class="img-fluid">
-      </div> -->
-
-
-            <!-- <div class="card">
-        <div class="d-flex justify-content-between p-2 px-3">
-          <div class="d-flex flex-row align-items-center"> <img src="assets/dummy.jpg" width="50"
-              class="rounded-circle">
-            <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">Jeanette Sun</span> <small
-                class="text-primary">Collegues</small> </div>
-          </div>
-          <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> <i
-              class="fa fa-ellipsis-h"></i> </div>
-        </div> <img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80"
-          class="img-fluid">
-        <div class="p-2">
-          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt.</p>
-          <hr>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i> <i
-                class="fa fa-smile-o ml-2"></i> </div>
-            <div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div>
-          </div>
-          <hr>
-          <div class="comments">
-            <div class="d-flex flex-row mb-2"> <img src="assets/dummy.jpg" width="40" class="rounded-image">
-              <div class="d-flex flex-column ml-2"> <span class="name">Daniel Frozer</span> <small
-                  class="comment-text">I like this alot! thanks alot</small>
-                <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small>
-                  <small>Translate</small> <small>18 mins</small> </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row mb-2"> <img src="assets/dummy.jpg" width="40" class="rounded-image">
-              <div class="d-flex flex-column ml-2"> <span class="name">Elizabeth goodmen</span> <small
-                  class="comment-text">Thanks for sharing!</small>
-                <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small>
-                  <small>Translate</small> <small>8 mins</small> </div>
-              </div>
-            </div>
-            <div class="comment-input"> <input type="text" class="form-control">
-              <div class="fonts"> <i class="fa fa-camera"></i> </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="d-flex justify-content-between p-2 px-3">
-          <div class="d-flex flex-row align-items-center"> <img src="assets/dummy.jpg" width="50"
-              class="rounded-circle">
-            <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">Jeanette Sun</span> <small
-                class="text-primary">Collegues</small> </div>
-          </div>
-          <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> <i
-              class="fa fa-ellipsis-h"></i> </div>
-        </div> <img src="https://images.unsplash.com/photo-1500816558239-6b91f4256ead?auto=format&fit=crop&w=331&q=80"
-          class="img-fluid">
-        <div class="p-2">
-          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt.</p>
-          <hr>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i> <i
-                class="fa fa-smile-o ml-2"></i> </div>
-            <div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div>
-          </div>
-          <hr>
-          <div class="comments">
-            <div class="d-flex flex-row mb-2"> <img src="assets/dummy.jpg" width="40" class="rounded-image">
-              <div class="d-flex flex-column ml-2"> <span class="name">Daniel Frozer</span> <small
-                  class="comment-text">I like this alot! thanks alot</small>
-                <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small>
-                  <small>Translate</small> <small>18 mins</small> </div>
-              </div>
-            </div>
-            <div class="d-flex flex-row mb-2"> <img src="assets/dummy.jpg" width="40" class="rounded-image">
-              <div class="d-flex flex-column ml-2"> <span class="name">Elizabeth goodmen</span> <small
-                  class="comment-text">Thanks for sharing!</small>
-                <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small>
-                  <small>Translate</small> <small>8 mins</small> </div>
-              </div>
-            </div>
-            <div class="comment-input"> <input type="text" class="form-control">
-              <div class="fonts"> <i class="fa fa-camera"></i> </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://images.unsplash.com/photo-1487376318617-f43c7b41e2e2?auto=format&fit=crop&w=750&q=80"
-          class="img-fluid scale">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-      </div> -->
 
             <div class="d-flex flex-column">
-              <div class="card img-card text-white mb-2">
-                <img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?auto=format&fit=crop&w=668&q=80"
+              <div class="card img-card mb-2">
+                <img src="assets/memories/1.jpg"
                   class="img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
+                <div class="card-img-overlay bg-info-subtle rounded-0 p-2">                  
+                  <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                  <p class="card-text text-start">Content will be available soon.</p>
+                  <figure>
+                    <figcaption class="blockquote-footer">
+                      Last updated 3 mins ago by John Doe
+                    </figcaption>
+                  </figure>
+                  <footer class="text-end">
+                    <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                    <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                      </svg>
+                    </a>
+                    <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                      </svg>
+                    </a>
+                  </footer>
                 </div>
               </div>
-              <div class="card img-card scale text-white mt-2">
-                <img src="https://images.unsplash.com/photo-1502865787650-3f8318917153?auto=format&fit=crop&w=334&q=80"
-                  class=" img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
-                </div>
+              <div class="card img-card scale mt-2">
+                <img src="assets/memories/2.jpg"
+                  class=" img-fluid" alt="...">                
+                  <div class="card-img-overlay bg-warning-subtle rounded-0 p-2">                  
+                    <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                    <p class="card-text text-start">Content will be available soon.</p>
+                    <figure>
+                      <figcaption class="blockquote-footer">
+                        Last updated 3 mins ago by John Doe
+                      </figcaption>
+                    </figure>
+                    <footer class="text-end">
+                      <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                      <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                        </svg>
+                      </a>
+                      <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                      </a>
+                    </footer>
+                  </div>
               </div>
             </div>
 
             <div class="d-flex flex-column">
-              <div class="card img-card scale mb-2 text-white">
-                <img src="https://images.unsplash.com/photo-1500816558239-6b91f4256ead?auto=format&fit=crop&w=331&q=80"
+              <div class="card img-card scale mb-2 bg-black justify-content-center">
+                <img src="assets/memories/3.jpg"
                   class="img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
+                <div class="card-img-overlay bg-warning-subtle rounded-0 p-2" >                  
+                  <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                  <p class="card-text text-start">Content will be available soon.</p>
+                  <figure>
+                    <figcaption class="blockquote-footer">
+                      Last updated 3 mins ago by John Doe
+                    </figcaption>
+                  </figure>
+                  <footer class="text-end">
+                    <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                    <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                      </svg>
+                    </a>
+                    <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                      </svg>
+                    </a>
+                  </footer>
                 </div>
               </div>
-              <div class="card img-card text-white">
-                <img src="https://images.unsplash.com/photo-1487376318617-f43c7b41e2e2?auto=format&fit=crop&w=750&q=80"
+              <div class="card img-card justify-content-center bg-black">
+                <img src="assets/memories/4.jpg"
                   class="img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
-                </div>
+                  <div class="card-img-overlay bg-info-subtle rounded-0 p-2">                  
+                    <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                    <p class="card-text text-start">Content will be available soon.</p>
+                    <figure>
+                      <figcaption class="blockquote-footer">
+                        Last updated 3 mins ago by John Doe
+                      </figcaption>
+                    </figure>
+                    <footer class="text-end">
+                      <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                      <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                        </svg>
+                      </a>
+                      <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                      </a>
+                    </footer>
+                  </div>
               </div>
             </div>
 
             <div class="d-flex flex-column">
-              <div class="card img-card scale mb-2 text-white">
-                <img src="https://images.unsplash.com/photo-1497888329096-51c27beff665?auto=format&fit=crop&w=751&q=80"
+              <div class="card img-card scale mb-2 bg-black">
+                <img src="assets/memories/5.jpg"
                   class="img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
-                </div>
+                  <div class="card-img-overlay bg-info-subtle rounded-0 p-2">                  
+                    <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                    <p class="card-text text-start">Content will be available soon.</p>
+                    <figure>
+                      <figcaption class="blockquote-footer">
+                        Last updated 3 mins ago by John Doe
+                      </figcaption>
+                    </figure>
+                    <footer class="text-end">
+                      <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                      <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                        </svg>
+                      </a>
+                      <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                      </a>
+                    </footer>
+                  </div>
               </div>
-              <div class="card img-card text-white">
-                <img src="https://images.unsplash.com/photo-1505253468034-514d2507d914?auto=format&fit=crop&w=334&q=80"
+              <div class="card img-card bg-black">
+                <img src="assets/memories/6.jpg"
                   class="img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
-                </div>
+                  <div class="card-img-overlay bg-warning-subtle rounded-0 p-2">                  
+                    <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                    <p class="card-text text-start">Content will be available soon.</p>
+                    <figure>
+                      <figcaption class="blockquote-footer">
+                        Last updated 3 mins ago by John Doe
+                      </figcaption>
+                    </figure>
+                    <footer class="text-end">
+                      <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                      <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                        </svg>
+                      </a>
+                      <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                      </a>
+                    </footer>
+                  </div>
               </div>
             </div>
 
             <div class="d-flex flex-column">
-              <div class="card img-card scale mb-2 text-white">
-                <img src="https://images.unsplash.com/photo-1502550900787-e956c314a221?auto=format&fit=crop&w=334&q=80"
+              <div class="card img-card scale mb-2 bg-black">
+                <img src="assets/memories/7.jpg"
                   class="img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
-                </div>
+                  <div class="card-img-overlay bg-warning-subtle rounded-0 p-2">                  
+                    <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                    <p class="card-text text-start">Content will be available soon.</p>
+                    <figure>
+                      <figcaption class="blockquote-footer">
+                        Last updated 3 mins ago by John Doe
+                      </figcaption>
+                    </figure>
+                    <footer class="text-end">
+                      <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                      <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                        </svg>
+                      </a>
+                      <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                      </a>
+                    </footer>
+                  </div>
               </div>
-              <div class="card img-card text-white">
-                <img src="https://images.unsplash.com/photo-1455853659719-4b521eebc76d?auto=format&fit=crop&w=750&q=80"
+              <div class="card img-card bg-black">
+                <img src="assets/memories/8.jpg"
                   class="img-fluid" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional
-                    content. This content is a little bit longer.</p>
-                  <p class="card-text">Last updated 3 mins ago</p>
-                </div>
+                  <div class="card-img-overlay bg-info-subtle rounded-0 p-2">                  
+                    <h4 class="card-title border-secondary border-bottom text-start">Title</h4>                  
+                    <p class="card-text text-start">Content will be available soon.</p>
+                    <figure>
+                      <figcaption class="blockquote-footer">
+                        Last updated 3 mins ago by John Doe
+                      </figcaption>
+                    </figure>
+                    <footer class="text-end">
+                      <a href="#" class="btn btn-sm btn-outline-info text-end">Read More ... </a>
+                      <a href="#" class="card-link text-warning-emphasis" data-bs-toggle="tooltip"  data-bs-title="Share">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                        </svg>
+                      </a>
+                      <a href="#" class="text-end card-link text-danger" data-bs-toggle="tooltip"  data-bs-title="Heart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                      </a>
+                    </footer>
+                  </div>
               </div>
             </div>
           </div>
+          <div class="container d-grid gap-2">
+            <button class="btn btn-outline-secondary btn-lg ">View more ... </button>
+          </div>          
         </div>
         <div class="tab-pane fade" id="myPost" role="tabpanel">
           <p>No Post Found</p>
@@ -406,9 +358,9 @@
         <div class="col-lg-12">
           <ul class="list-unstyled">
             <li class="float-end"><a href="#top">Back to top</a></li>
-            <li><a href="#">Blog</a></li>
+            <!-- <li><a href="#">Blog</a></li>
             <li><a href="#">Twitter</a></li>
-            <li><a href="../help/#donate">Donate</a></li>
+            <li><a href="../help/#donate">Donate</a></li> -->
           </ul>
           <p>Developed by <a href="#">Hiranya Sarma</a>.</p>
           <!-- <p>Theme Made by <a href="https://thomaspark.co/">Thomas Park</a>.</p>
